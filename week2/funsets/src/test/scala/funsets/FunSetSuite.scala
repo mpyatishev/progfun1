@@ -157,9 +157,22 @@ class FunSetSuite extends FunSuite {
       val r2 = exists(s, (x: Int) => x >= 2)
       val r3 = exists(s, (x: Int) => x != 3)
 
-      assert(r1, "forall 1")
-      assert(r2, "forall 2")
-      assert(r3, "forall 3")
+      assert(r1, "exists 1")
+      assert(r2, "exists 2")
+      assert(r3, "exists 3")
+    }
+  }
+
+  test("map returns transformed set") {
+    new TestSets {
+      val s = union(union(s1, s2), s3)
+      val r = map(s, (x: Int) => x + 1)
+
+      assert(!contains(r, 1), "map 1")
+      assert(contains(r, 2), "map 2")
+      assert(contains(r, 3), "map 3")
+      assert(contains(r, 4), "map 4")
+      assert(!contains(r, 5), "map 5")
     }
   }
 }
