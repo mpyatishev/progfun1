@@ -35,7 +35,7 @@ class HuffmanSuite extends FunSuite {
 
   test("count chars frequencies") {
     val chars = "aabbaacc".toList
-    assert(times(chars) == List(('c', 2), ('a', 4), ('b', 2)))
+    assert(times(chars) == List(('a', 4), ('b', 2), ('c', 2)))
   }
 
 
